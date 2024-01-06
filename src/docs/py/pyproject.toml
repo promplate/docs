@@ -1,0 +1,23 @@
+import toml
+
+# Define the contents of the pyproject.toml file
+contents = {
+    "build-system": {
+        "requires": ["poetry-core>=1.0.0"],
+        "build-backend": "poetry.core.masonry.api",
+    },
+    "tool.poetry": {
+        "name": "promplate-docs",
+        "version": "0.0.1",
+        "description": "Documentation for promplate",
+        "authors": ["Your Name"],
+        "license": "MIT",
+        "dependencies": {
+            "promplate": "^1.0.0"
+        }
+    }
+}
+
+# Write the contents to the pyproject.toml file
+with open("src/docs/py/pyproject.toml", "w") as f:
+    toml.dump(contents, f)
