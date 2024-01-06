@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Poetry dependencies
+      - name: Install Poetry and set up Python dependencies
         run: |
           uses: actions/setup-python@v2
           with:
+            virtualenv-version: system
             python-version: 3.9
+      - name: Install Poetry and set up Python
+        uses: 'poetry/install-poetry@v1'
 - name: Install Poetry
-        run: |
+        run: |\n          poetry run
           poetry --version
           echo "$HOME/.poetry/bin" >> $GITHUB_PATH
           run: |
